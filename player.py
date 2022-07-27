@@ -13,16 +13,16 @@ class Player:
     def movePlayer(self, space, direction):
         matrix = space.getMatrix()
 
-        if direction == '4' and self.position[1] > 0:
+        if direction == 'a' and self.position[1] > 0:
             matrix[self.position[0]][self.position[1]] = 0
             self.position[1] -= 1
-        elif direction == '6' and self.position[1] < space.coluna - 1:
+        elif direction == 'd' and self.position[1] < space.coluna - 1:
             matrix[self.position[0]][self.position[1]] = 0
             self.position[1] += 1
-        elif direction == '8' and self.position[0] > 0:
+        elif direction == 'w' and self.position[0] > 0:
             matrix[self.position[0]][self.position[1]] = 0
             self.position[0] -= 1
-        elif direction == '2' and self.position[0] < space.linha - 1:
+        elif direction == 's' and self.position[0] < space.linha - 1:
             matrix[self.position[0]][self.position[1]] = 0
             self.position[0] += 1
 
