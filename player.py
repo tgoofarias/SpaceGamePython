@@ -2,6 +2,9 @@ class Player:
     def __init__(self, position):
         self.playerSprite = ".O"
         self.position = position
+
+    def getPosition(self):
+        return self.position
     
     def createPlayer(self, space):
         matrix = space.getMatrix()

@@ -20,12 +20,12 @@ class Space:
             self.matrix.append([])
             for i in range(self.coluna):
                 self.matrix[c].append(0)
-    
+
     def printMatrix(self):
         for c in range(self.linha):
             print(self.matrix[c])
 
-    def createSpace(self, player):
+    def createSpace(self, player, enemy):
         self.space = self.matrix
         for c in range(self.linha):
             for i in range(self.coluna):
@@ -33,9 +33,11 @@ class Space:
                     self.space[c][i] = self.spaceSprite
                 elif self.matrix[c][i] == 1:
                     self.space[c][i] = player.playerSprite
-    
+                elif self.matrix[c][i] == 2:
+                    self.space[c][i] = enemy.enemySprite
+
     def printSpace(self):
         for c in range(self.linha):
             for i in range(self.coluna):
-                print(self.space[c][i], end=" ")
+                print(self.space[c][i], end="   ")
             print("\n")

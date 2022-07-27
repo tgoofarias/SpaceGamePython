@@ -1,17 +1,20 @@
 import space
 import player
+import enemy
 import GUI
 
-space = space.Space(7, 10)
+space = space.Space(10, 10)
 player = player.Player([5, 5])
+enemy = enemy.Enemy()
 GUI = GUI.GUI()
 
 space.createMatrix()
 space.printMatrix()
 player.createPlayer(space)
+enemy.createEnemy(space, player)
 
 while True:
-    space.createSpace(player)
+    space.createSpace(player, enemy)
     space.printSpace()
 
     direction = GUI.directionMenu()
