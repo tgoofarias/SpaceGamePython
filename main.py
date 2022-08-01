@@ -1,3 +1,4 @@
+from re import A
 import space
 import player
 import enemy
@@ -9,12 +10,12 @@ enemy = enemy.Enemy()
 GUI = GUI.GUI()
 
 space.createMatrix()
-space.printMatrix()
 player.createPlayer(space)
 enemy.createEnemy(space, player)
 
 while True:
     space.createSpace(player, enemy)
+    GUI.showHealthBar(player, enemy)
     space.printSpace()
 
     direction = GUI.directionMenu()
@@ -24,3 +25,14 @@ while True:
 
     player.movePlayer(space, enemy, direction)
     enemy.moveEnemy(space, player)
+
+    if(player.getLife() == 0 or enemy.getLife() == 0):
+        space.createSpace(player, enemy)
+        GUI.showHealthBar(player, enemy)
+        space.printSpace()
+        break
+
+if (player.getLife() != 0 and direction != 'o'):
+    print('VOCÊ VENCEU')
+elif (player.getLife() == 0):
+    print('VOCÊ PERDEU!')

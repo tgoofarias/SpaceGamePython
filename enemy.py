@@ -3,6 +3,13 @@ import random
 class Enemy:
     def __init__(self):
         self.enemySprite = ".V"
+        self.life = 100
+
+    def getPosition(self):
+        return self.position
+
+    def getLife(self):
+        return self.life
 
     def createEnemy(self, space, player):
         matrix = space.getMatrix()
@@ -44,8 +51,5 @@ class Enemy:
 
         space.setMatrix(matrix)
 
-    def getPosition(self):
-        return self.position
-
     def loseLife(self):
-        print('perdeu vida')
+        self.life -= 20

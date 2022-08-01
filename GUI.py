@@ -3,7 +3,7 @@ class GUI:
         self.buttons = ["W", "A", "S", "D", "O"]
 
     def directionMenu(self):
-        print(f"Mover:        ^ cima({self.buttons[0]})       ")
+        print(f"Mover:        ^ cima({self.buttons[0]})            Atirar(J)")
         print(f"              |            ")
         print(f"<-esquerda({self.buttons[1]})   direita ({self.buttons[3]}) -> ")
         print(f"              |            ")
@@ -11,3 +11,8 @@ class GUI:
         direction = input("Qual direção mover? ").lower()
 
         return direction
+
+    def showHealthBar(self, player, enemy):
+        playerLife = player.getLife()
+        enemyLife = enemy.getLife()
+        print(f'Player: {playerLife}      Enemy: {enemyLife}')

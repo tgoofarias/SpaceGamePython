@@ -2,9 +2,13 @@ class Player:
     def __init__(self, position):
         self.playerSprite = ".O"
         self.position = position
+        self.life = 3
 
     def getPosition(self):
         return self.position
+
+    def getLife(self):
+        return self.life
 
     def createPlayer(self, space):
         matrix = space.getMatrix()
@@ -36,7 +40,7 @@ class Player:
         space.setMatrix(matrix)
 
     def collision(self):
-        print('colisão')
+        self.life -= 1
 
     def shoot(self, direction, enemy):
         if (direction == 'j'):
