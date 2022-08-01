@@ -22,4 +22,5 @@ while True:
     if direction == 'o':
         break
 
-    player.movePlayer(space, direction)
+    player.movePlayer(space, enemy, direction)
+    enemy.moveEnemy(space, player)

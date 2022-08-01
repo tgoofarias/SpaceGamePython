@@ -5,15 +5,15 @@ class Player:
 
     def getPosition(self):
         return self.position
-    
+
     def createPlayer(self, space):
         matrix = space.getMatrix()
 
         matrix[self.position[0]][self.position[1]] = 1
 
         space.setMatrix(matrix)
-    
-    def movePlayer(self, space, direction):
+
+    def movePlayer(self, space, enemy, direction):
         matrix = space.getMatrix()
 
         if direction == 'a' and self.position[1] > 0:
@@ -28,11 +28,19 @@ class Player:
         elif direction == 's' and self.position[0] < space.linha - 1:
             matrix[self.position[0]][self.position[1]] = 0
             self.position[0] += 1
+        elif direction == 'j':
+            self.shoot(direction, enemy)
 
         matrix[self.position[0]][self.position[1]] = 1
 
         space.setMatrix(matrix)
-            
-        
-        
 
+    def collision(self):
+        print('colisão')
+
+    def shoot(self, direction, enemy):
+        if (direction == 'j'):
+            enemyPos = enemy.getPosition()
+
+            if (enemyPos[0] == self.position[0] or enemyPos[1] == self.position[1]):
+                enemy.loseLife()
